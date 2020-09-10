@@ -1,0 +1,63 @@
+<div class="col col-8">
+    <div class="card">
+        <h5 class="card-header">Consigna Ejercicio 1</h5>
+        <div class="card-body">
+            <p class="card-subtitle text-muted text-center">
+                Aplicacion que se le ingresen dos edades en dos cuadro de textos
+                edadUno, EdadDos
+                mostrar el promedio y la suma en dos cuadros de textos nuevos
+                botones "calcular" y "limpiar cuadros de textos"
+            </p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-outline-secondary"
+                    (click)='onBack()'
+                    style='width: 80px;'>
+                    Volver
+            </button>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="col col-8">
+    <div class="row d-flex flex-row">
+        <div class="col">
+            <div class="row justify-content-center">
+                <form>
+                    <div class="form-group">
+                        <label>Edad 1</label>
+                        <!-- No olvidar que para que funcione ngModel necesito tener un name en el input -->
+                        <input class="form-control" name="edad1" type="number" [(ngModel)]="edadUno">
+                    </div>
+                    <div class="form-group">
+                        <label >Edad 2</label>
+                        <input class="form-control" name="edad2" type="number" [(ngModel)]="edadDos">
+                    </div>
+                    <button class="btn btn-primary" type="button" (click)='calcular()'>Calcular</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="col" *ngIf="suma > 0 && promedio > 0">
+            <div class="row d-flex justify-content-center align-content-center">
+
+                <div class="row">
+                    <form>
+                        <h5>Resultados</h5>
+                        <div class="form-group">
+                            <label>Suma</label>
+                            <h5>{{suma}}</h5>
+                        </div>
+                        <div class="form-group">
+                            <label>Promedio</label>
+                            <h5>{{promedio}}</h5>
+                        </div>
+                        <button class="btn btn-secondary" type="button" (click)='reiniciar()'>Reiniciar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
